@@ -1,37 +1,69 @@
 # StockAndTasks - Workshop & Inventory Management System
 
-**StockAndTasks** es una solución de escritorio optimizada para talleres de reparación de electrónica y computación. El sistema resuelve la gestión integral de inventario y el seguimiento de servicios técnicos mediante una arquitectura *offline-first* eficiente, respaldada por servicios remotos de licenciamiento y despliegue continuo.
+**StockAndTasks** es una solución de escritorio desarrollada bajo la arquitectura **WPF / MVVM** en **C# / .NET**, orientada a la gestión integral de talleres de reparación electrónica, computación y telefonía. Combina persistencia *offline-first* ultra optimizada con trazabilidad completa de stock, flujo de trabajo para servicio técnico y sistemas remotos de licenciamiento y auto-actualización.
 
 ---
 
-### 🛠️ Características Principales y Arquitectura
+## 📸 Módulos e Interfaz
 
-* **Trazabilidad por Libro Mayor (Ledger / Audit Trail):** Cada variación de stock (reabastecimiento, compras, ventas, ajustes) se registra de forma inmutable como un movimiento, permitiendo auditoría histórica y operación mediante carrito de ventas.
-* **Categorización por Etiquetado Dinámico:** Filtros avanzados por etiquetas personalizables (ej. *capacitores, transistores*) para la localización rápida de componentes.
-* **Gestión del Ciclo de Vida de Servicios (Service Orders):** Catálogo parametrizado de tareas frecuentes (mantenimiento, cambio de módulos) e historial de reparaciones con diagnósticos opcionales, precios y seguimiento de fechas límite[cite: 1].
-* **Telemetría e Informes en Dashboard:** Indicadores clave de rendimiento (KPIs) en tiempo real: alertas de bajo stock, trabajos próximos a vencer, gráficos financieros de ingresos/compras y exportación de datos a PDF.
-
----
-
-### ⚡ Rendimiento y Gestión de Memoria
-
-* **Virtualización de Interfaz y Reciclado de Memoria:** Consumo ultra optimizado de memoria RAM (~20 MB) probado en catálogos de +10,000 elementos. Implementación de *scroll infinito* con una ventana de renderizado activo (200 a 600 elementos) y liberación/reciclado dinámico de objetos según la posición del scroll.
-* **Persistencia Local de Alta Eficiencia:** Almacenamiento local mediante SQLite para tiempos de respuesta inmediatos y tolerancia a fallos de red[cite: 1].
+### 📊 Dashboard & Métricas
+Visualización centralizada de estado de negocio, alertas de vencimiento de trabajos, stock bajo y resumen financiero interactivo.
+![Dashboard Principal](/assets/dashboard.png)
 
 ---
 
-### 🔐 Licenciamiento y Despliegue
+### 📦 Gestión de Inventario y Stock
+Administración de catálogo con categorización parametrizada, filtros por etiquetas dinámicas (ej. *capacitores, transistores*) y módulo de ingreso rápido de artículos.
+| Vista de Inventario | Registro de Productos |
+| :---: | :---: |
+| ![Inventario](/assets/Inventario.png) | ![Agregar Inventario](/assets/agregarInventario.png) |
 
-* **Validación de Licencias DRM:** Módulo de verificación en línea para autenticación de licencias activas.
-* **Pipeline de Actualización:** Integración con **Velopack** para la distribución e instalación silenciosa de parches y actualizaciones de software (*Auto-updates*).
+**Búsqueda y Filtrado Avanzado:**
+![Filtro de Inventario](/assets/filtroinventario.png)
 
 ---
 
-### 💻 Stack Tecnológico
+### 🛠️ Servicio Técnico y Órdenes de Trabajo
+Seguimiento del ciclo de vida de reparaciones (*Pendiente, Activo, Terminado*), asignación de precios, diagnósticos y catálogo de tareas frecuentes preconfiguradas.
+| Listado de Trabajos | Alta de Trabajo Técnico |
+| :---: | :---: |
+| ![Trabajos](/assets/trabajos.png) | ![Agregar Trabajo](/assets/agregar trabajo.png) |
 
-| Componente | Tecnología |
+**Catálogo de Tareas Parametrizadas:**
+![Tareas Preconfiguradas](/assets/tareas.png)
+
+---
+
+### 💳 Ventas y Registro Inmutable (Audit Trail)
+Carro de ventas directo e historial inmutable de movimientos (*reabastecer, comprar, vender, ajustar precio*) respaldado por un libro mayor de transacciones.
+| Carrito de Ventas | Historial de Movimientos |
+| :---: | :---: |
+| ![Ventas](/assets/ventas.png) | ![Historial](/assets/historial.png) |
+
+---
+
+## ⚡ Arquitectura y Rendimiento
+
+* **Patrón MVVM Estricto:** Desacoplamiento total entre las vistas (XAML) y la lógica de negocio (ViewModels), garantizando mantenibilidad y facilidad para pruebas unitarias.
+* **Virtualización de UI y Manejo de Memoria:** Huella de memoria mínima de **~20 MB RAM** testeada con +10,000 elementos. *Scroll infinito* con ventana de renderizado activo (200 a 600 elementos) y reciclado dinámico de componentes en memoria.
+* **Persistencia Local:** Almacenamiento directo mediante SQLite para asegurar operatividad offline sin dependencia de red local ni servidores externos.
+* **Informes:** Generación automática de reportes detallados y exportación directa de tablas a formato PDF.
+
+---
+
+## 🔐 Licenciamiento y Distribución
+
+* **Validación DRM Remota:** Control de activación y verificación de licencias en línea.
+* **Pipeline de Auto-Update:** Integración con **Velopack** para la instalación silenciosa y distribución automatizada de parches y actualizaciones.
+
+---
+
+## 💻 Stack Tecnológico
+
+| Capa | Tecnología |
 | :--- | :--- |
-| **Lenguaje / Framework** | C# / .NET |
-| **Base de Datos** | SQLite |
-| **Instalador & Updates** | Velopack |
-| **Testing** | xUnit v3 |
+| **Arquitectura / GUI** | WPF (Windows Presentation Foundation) / MVVM Pattern |
+| **Lenguaje / Runtime** | C# / .NET |
+| **Persistencia Local** | SQLite |
+| **Despliegue & Updates** | Velopack |
+| **Pruebas Unitarias** | xUnit v3 |

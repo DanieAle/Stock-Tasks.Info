@@ -27,7 +27,7 @@ Administración de catálogo con categorización parametrizada, filtros por etiq
 Seguimiento del ciclo de vida de reparaciones (*Pendiente, Activo, Terminado*), asignación de precios, diagnósticos y catálogo de tareas frecuentes preconfiguradas.
 | Listado de Trabajos | Alta de Trabajo Técnico |
 | :---: | :---: |
-| ![Trabajos](/assets/trabajos.png) | ![Agregar Trabajo](/assets/agregar trabajo.png) |
+| ![Trabajos](/assets/trabajos.png) | ![Agregar Trabajo](/assets/agregartrabajo.png) |
 
 **Catálogo de Tareas Parametrizadas:**
 ![Tareas Preconfiguradas](/assets/tareas.png)
